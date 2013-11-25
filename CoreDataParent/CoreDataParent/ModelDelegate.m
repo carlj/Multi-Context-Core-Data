@@ -77,8 +77,8 @@ SingletonImplementation(ModelDelegate);
   });
   */
   
-  [saveContext performBlock:^{
-    [saveContext.parentContext performBlock:^{
+  [saveContext performBlockAndWait:^{
+    [saveContext.parentContext performBlockAndWait:^{
       [saveContext.parentContext mergeChangesFromContextDidSaveNotification:notification];
     }];
   }];
